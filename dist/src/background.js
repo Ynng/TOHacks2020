@@ -14,7 +14,7 @@ chrome.storage.sync.get('area', function (items) {
 
 chrome.storage.sync.get('strictness', function (items) {
   console.log(items['strictness'])
-  if(items['strictness'] !== items['strictness']){
+  if(items['strictness'] !== items['strictness'] || items['strictness'] == undefined){
     chrome.storage.sync.set({ 'strictness': 7 }, function () {
       console.log('Settings saved');
     });
