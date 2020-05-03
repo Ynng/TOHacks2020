@@ -8,7 +8,7 @@
 
   <style>
     body {
-      height: 600px;
+      height: 500px;
       width: 375px;
       background-color: #C3C3C3;
       overflow: hidden;
@@ -32,12 +32,14 @@
       font-weight: 700;
       font-size: 30px;
       font-family: roboto;
+      margin-top: 50px;
     }
 
     #saved-tooltip{
       transition: .2s;
       pointer-events: none;
       font-size: 20px;
+      font-weight: 800;
     }
   </style>
 </header>
@@ -57,11 +59,11 @@
             <input type="text" class="form-control" id="area" placeholder="Examples: programming, design, biology">
 
             <label  class="title">Strictness</label><br>
-            <input type="radio" id="relaxed" name="strictness" value="relaxed">
+            <input type="radio" id="relaxed" name="strictness" value="8">
             <label for="relaxed">Relaxed</label><br>
-            <input type="radio" id="normal" name="strictness" value="normal">
+            <input type="radio" id="normal" name="strictness" value="7">
             <label for="normal">Normal</label><br>
-            <input type="radio" id="strict" name="strictness" value="strict">
+            <input type="radio" id="strict" name="strictness" value="6">
             <label for="strict">Strict</label><br>
 
             <button type="submit" class="btn btn-primary">Save</button>

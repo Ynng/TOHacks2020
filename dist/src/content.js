@@ -29,12 +29,13 @@ setInterval(function()
         console.log(title)
 
         chrome.storage.sync.get('area', function(items) {
+            var area = items.area;
             chrome.storage.sync.get('strictness', function(items) {
-                fetch('http://35.222.34.192/?area=' + items.area + '&title='+title).then(r => r.text()).then(result => {
+                fetch('http://35.222.34.192/?area=' + area + '&title='+title).then(r => r.text()).then(result => {
                     console.log(Number(result))
     
                     distractionValue = 1-(Number(result)*items['strictness'])
-                    iDiv.innerHTML = result;
+                    iDiv.innerHTML = ((1-distractionValue)*100).toFixed(0).concat("% \"").concat(area).concat("\" Related");
                     
                     iDiv.style["background-color"] = "rgba(255,255,255,".concat(String(distractionValue));
                     console.log(distractionValue)
