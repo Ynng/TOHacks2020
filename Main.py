@@ -24,16 +24,25 @@ def similarity(message1, message2):
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         query = urlparse(self.path).query
-        query_components = dict(qc.split("=") for qc in query.split("&"))
-        title = query_components["title"].replace("%20", " ")
-        print("title = ", title)
+        result = 0
+
+        try:
+          query_components = dict(qc.split("=") for qc in query.split("&"))
+          valid = True
+          title = query_components["title"].replace("%20", " ")
+          area = query_components["area"].replace("%20", " ")
+          result = similarity(area, title)
+          print("title = ", title)
+          print("area = ", title)
+        except:
+          print("Invalid request")
 
         # query_components = { "imsi" : "Hello" }
         self.send_response(200)
         self.send_header("Content-type", "application/json")
         self.end_headers()
         self.wfile.write(bytes("{\"similarity\":", "utf-8"))
-        self.wfile.write(bytes(str(similarity("programming", title)), "utf-8"))
+        self.wfile.write(bytes(str(result), "utf-8"))
         self.wfile.write(bytes("}", "utf-8"))
 
 
@@ -47,9 +56,3 @@ except KeyboardInterrupt:
 
 myServer.server_close()
 print(time.asctime(), "Server Stops - %s:%s" % (hostName, hostPort))
-
-
-while True:
-  msg1 = input("Enter String 1:")
-  msg2 = input("Enter String 2:")
-  print("Similarity: ", similarity(msg1, msg2))
