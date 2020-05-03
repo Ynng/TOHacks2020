@@ -7,6 +7,6 @@
 How to use:
 * Grab the chrome extension here https://github.com/Ynng/TOHacks2020/releases/latest
 * Install it
-* Allow mixed content on tabs you want to try on
-
+* We are using HTTP, not HTTPS, so you'll have to allow mixed content on tabs you want to try on
 ![](https://cdn.discordapp.com/attachments/582279972287414275/706510452041187428/unknown.png)
+* Change your settings by clicking on the icon in your toolbar
