@@ -119,5 +119,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"+bEr":[function(require,module,exports) {
 console.log("It's working!");
+chrome.tabs.query({
+  currentWindow: true,
+  active: true
+}, function (tabs) {
+  console.log("Ayyeeee");
+  console.log(tabs[0]);
+});
 },{}]},{},["+bEr"], null)
 //# sourceMappingURL=/background.js.map
