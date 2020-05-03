@@ -3,7 +3,7 @@
 document.body.onload = function () {
 
   chrome.storage.sync.get('area', function (items) {
-    document.getElementById("area").placeholder = "Saved: ".concat(items["area"]);
+    document.getElementById("area").value = items["area"];
   });
 
 }
@@ -27,9 +27,6 @@ function save() {
   if (document.getElementById("area").value != "") {
     chrome.storage.sync.set({ 'area': document.getElementById("area").value }, function () {
       console.log("saved: ".concat(document.getElementById("area").value));
-      document.getElementById("area").placeholder = "Saved: ".concat(document.getElementById("area").value);
-      document.getElementById("area").value = "";
-
     });
   }
 

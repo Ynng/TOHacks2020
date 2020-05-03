@@ -31,7 +31,7 @@ setInterval(function()
         chrome.storage.sync.get('area', function(items) {
             var area = items.area;
             chrome.storage.sync.get('strictness', function(items) {
-                fetch('http://35.222.34.192/?area=' + area + '&title='+title).then(r => r.text()).then(result => {
+                fetch('http://focuswith.tech/?area=' + area + '&title='+title).then(r => r.text()).then(result => {
                     console.log(Number(result))
     
                     distractionValue = 1-(Number(result)*items['strictness'])
