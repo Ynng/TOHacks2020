@@ -4,12 +4,12 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import urlparse
 import time
 import tensorflow as tf
-
+import json
 import tensorflow_hub as hub
 import numpy as np
 
-hostName = "localhost"
-hostPort = 9000
+hostName = "192.168.1.3"
+hostPort = 80
 
 
 module_url = "https://tfhub.dev/google/universal-sentence-encoder/4"
@@ -29,23 +29,22 @@ class MyServer(BaseHTTPRequestHandler):
 
         try:
           query_components = dict(qc.split("=") for qc in query.split("&"))
-          valid = True
           title = query_components["title"].replace("%20", " ")
           area = query_components["area"].replace("%20", " ")
           result = similarity(area, title)
           print("title = ", title)
           print("area = ", area)
+          print("response = ", result)
         except:
           print("Invalid request")
 
         # query_components = { "imsi" : "Hello" }
         self.send_response(200)
-        self.send_header("Content-type", "application/json")
+        # self.send_header('Content-type', 'application/json')
         self.end_headers()
-        self.wfile.write(bytes("{\"similarity\":", "utf-8"))
         self.wfile.write(bytes(str(result), "utf-8"))
-        self.wfile.write(bytes("}", "utf-8"))
 
+print("testing ts model: similarity between programmer and learning python in one hour: ", similarity("programmer", "learning java in one hour"))
 
 myServer = HTTPServer((hostName, hostPort), MyServer)
 print(time.asctime(), "Server Starts - %s:%s" % (hostName, hostPort))
