@@ -25,6 +25,7 @@ class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         query = urlparse(self.path).query
         result = 0
+        print("client address: ", self.client_address[0])
 
         try:
           query_components = dict(qc.split("=") for qc in query.split("&"))
@@ -33,7 +34,7 @@ class MyServer(BaseHTTPRequestHandler):
           area = query_components["area"].replace("%20", " ")
           result = similarity(area, title)
           print("title = ", title)
-          print("area = ", title)
+          print("area = ", area)
         except:
           print("Invalid request")
 
