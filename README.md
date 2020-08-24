@@ -1,8 +1,7 @@
-#  Fixate
-![](https://cdn.discordapp.com/attachments/582279972287414275/706511170663612436/Logo.png)
+![Fixate](https://cdn.discordapp.com/attachments/582279972287414275/706511170663612436/Logo.png)
 ## ML based web blocker. Enter your "area of work" and block everything unrelated on a "page-to-page basis" rather than by domain. Stay focused even at home. 
 
-
+[![Youtube screenshot that is a link to our youtube video](https://i.imgur.com/BTcW7xY.png)](https://www.youtube.com/watch?v=FlUhG99RqHs)
 
 How to use:
 * Grab the chrome extension here https://github.com/Ynng/TOHacks2020/releases/latest
